@@ -1,3 +1,5 @@
+# PLease note: This plugin and project is work in progress ...
+
 # Spintax Output Plugin
 
 [![NPM](https://nodei.co/npm/jovo-community-plugin-spintax-output.png)](https://nodei.co/npm/jovo-community-plugin-spintax-output/)
