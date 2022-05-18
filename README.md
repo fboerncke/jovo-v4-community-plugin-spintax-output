@@ -52,14 +52,14 @@ Spintax can help you to bring variety into your utterances.
 
 Install the plugin into your Jovo project:
 
-`npm install jovo-community-plugin-spintax-output --save`
+`npm install jovo-v4-community-plugin-spintax-output --save`
 
 Register the plugin in:
 
 app.js:
 
 ```javascript
-const { SpintaxOutputPlugin } = require("jovo-community-plugin-spintax-output");
+const { SpintaxOutputPlugin } = require('jovo-v4-community-plugin-spintax-output');
 
 app.use(
   // ... base imports
@@ -70,8 +70,7 @@ app.use(
 app.ts:
 
 ```typescript
-import { SpintaxOutputPlugin } from "jovo-community-plugin-spintax-output";
-
+import { SpintaxOutputPlugin } from 'jovo-v4-community-plugin-spintax-output';
 app.use(
   // ... base imports
   new SpintaxOutputPlugin()
