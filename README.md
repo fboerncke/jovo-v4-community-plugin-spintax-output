@@ -1,6 +1,6 @@
 # Spintax Output Plugin for Jovo V4
 
-[![NPM](https://nodei.co/npm/jovo-community-plugin-spintax-output.png)](https://nodei.co/npm/jovo-community-plugin-spintax-output/)
+[![NPM](https://nodei.co/npm/jovo-v4-community-plugin-spintax-output.png)](https://nodei.co/npm/jovo-v4-community-plugin-spintax-output/)
 
 ## Overview
 
