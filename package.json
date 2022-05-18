@@ -1,7 +1,7 @@
 {
-  "name": "jovo-community-plugin-spintax-output",
-  "version": "1.0.9",
-  "description": "A Jovo Framework plugin which adds spintax support.",
+  "name": "jovo-v4-community-plugin-spintax-output",
+  "version": "1.0.0",
+  "description": "A Jovo V4 framework plugin which adds spintax support for output strings.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
@@ -13,13 +13,13 @@
   },
   "author": "Frank Börncke",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/jovo-community/jovo-community-plugin-spintax-output#readme",
+  "homepage": "https://github.com/fboerncke/jovo-v4-community-plugin-spintax-output#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jovo-community/jovo-community-plugin-spintax-output"
+    "url": "https://github.com/fboerncke/jovo-v4-community-plugin-spintax-output"
   },
   "bugs": {
-    "url": "https://github.com/jovo-community/jovo-community-plugin-spintax-output/issues"
+    "url": "https://github.com/fboerncke/jovo-v4-community-plugin-spintax-output/issues"
   },
   "dependencies": {
     "husky": "^4.2.3",
