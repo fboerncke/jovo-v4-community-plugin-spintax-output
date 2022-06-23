@@ -79,7 +79,7 @@ app.use(
 
 # How to start
 
-Replace your whatever `WELCOME_MESSAGE` with something like `"[Welcome|Hello|Hi!]"` and launch you voice app/skill/action multiple times. 
+Replace your whatever `WELCOME_MESSAGE` with something like `"[Welcome|Hello|Hi!]"`. Now launch your voice app/skill/action multiple times.
 
 Notice the difference?
 
