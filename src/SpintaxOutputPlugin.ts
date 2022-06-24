@@ -5,6 +5,7 @@ import {
   PluginConfig,
   Extensible,
   InvalidParentError,
+  MessageValue,
 } from "@jovotech/framework";
 
 import { processSpintaxExpression } from "./SpintaxOutputProcessor";
@@ -28,14 +29,63 @@ export class SpintaxOutputPlugin extends Plugin {
   }
 
   processSpintaxExpressionsInOutput(jovo: Jovo) {
-    jovo.$output.forEach((entry): void => {
+    jovo.$output.forEach((entry) => {
       if ("message" in entry) {
-        entry.message = processSpintaxExpression(entry.message as string);
+        if (Array.isArray(entry.message)) {
+          let messageArray = entry.message;
+          messageArray = messageArray.map((message: MessageValue) => {
+            return this.processSpintaxedOutputElement(message);
+          });
+          entry.message = messageArray;
+        } else {
+          entry.message = this.processSpintaxedOutputElement(
+            entry.message as string
+          );
+        }
       }
+
       if ("reprompt" in entry) {
-        entry.reprompt = processSpintaxExpression(entry.reprompt as string);
+        if (Array.isArray(entry.reprompt)) {
+          let repromptArray = entry.reprompt;
+          repromptArray = repromptArray.map((message: MessageValue) => {
+            return this.processSpintaxedOutputElement(message);
+          });
+          entry.reprompt = repromptArray;
+        } else {
+          entry.reprompt = this.processSpintaxedOutputElement(
+            entry.reprompt as string
+          );
+        }
       }
     });
+  }
+
+  /**
+   *
+   * @param spintaxedOutputElement may be a string or an object like {text: string, speech: string} but no Array
+   * @returns
+   */
+  processSpintaxedOutputElement(
+    spintaxedOutputElement: MessageValue
+  ): MessageValue {
+    if (typeof spintaxedOutputElement === "string") {
+      spintaxedOutputElement = processSpintaxExpression(
+        spintaxedOutputElement as string
+      );
+    } else if (typeof spintaxedOutputElement === "object") {
+      // structure is something like {text: string, speech: string}
+      if ("text" in spintaxedOutputElement) {
+        spintaxedOutputElement.text = processSpintaxExpression(
+          spintaxedOutputElement.text as string
+        );
+      }
+      if ("speech" in spintaxedOutputElement) {
+        spintaxedOutputElement.speech = processSpintaxExpression(
+          spintaxedOutputElement.speech as string
+        );
+      }
+    }
+    return spintaxedOutputElement;
   }
 
   getDefaultConfig(): PluginConfig {
